@@ -1,0 +1,8 @@
+#foot{
+    height: 100px;
+    background: linear-gradient(45deg, rgb(253, 38, 38), rgb(40, 40, 221));
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    
+}
