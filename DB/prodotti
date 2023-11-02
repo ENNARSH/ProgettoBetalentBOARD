@@ -1,0 +1,45 @@
+ddl
+
+-- magazzinoricambi.prodotti definition
+
+CREATE TABLE `prodotti` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cod_prodotto` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
+  `codici` varchar(100) DEFAULT NULL,
+  `auto_compatibile` varchar(45) NOT NULL,
+  `descrizione` varchar(45) DEFAULT NULL,
+  `prezzo` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idfendinebbia_UNIQUE` (`id`),
+  UNIQUE KEY `cod_prodotto_UNIQUE` (`cod_prodotto`)
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+dml
+
+|id |cod_prodotto      |tipo              |codici      |auto_compatibile|descrizione     |prezzo|
+|---|------------------|------------------|------------|----------------|----------------|------|
+|12 |nisqasmk1fensx1   |fendinebbia sx    |261558992A  |qashqai mk1     |bello           |19    |
+|33 |lanypsmk2fensx2   |fendinebbia sx    |37470748    |ypsilon mk2     |figo            |13    |
+|35 |lanypsmk2fendx3   |fendinebbia dx    |37470748    |ypsilon mk2     |super           |24    |
+|36 |lanypsmk2fensx4   |fendinebbia sx    |37460748    |ypsilon mk2     |rotto           |12    |
+|38 |opecordmk4fendx5  |fendinebbia dx    |13253625    |corsa d mk4     |spaccato        |34    |
+|39 |opecordmk4fendx6  |fendinebbia dx    |13253625    |corsa d mk4     |graffiato       |53    |
+|40 |fiapunmk2fensx7   |fendinebbia sx    |            |punto mk2       |incognito       |53    |
+|41 |formonmk2fensx8   |fendinebbia sx    |1S7115K201AC|mondeo mk2      |brutto          |67    |
+|42 |formonmk2fendx9   |fendinebbia dx    |1S7115K201AC|mondeo mk2      |scassato        |12    |
+|43 |fiapanmk2fensx10  |fendinebbia sx    |            |panda mk2       |penoso          |13    |
+|44 |renclimk3fendx11  |fendinebbia dx    |8200002470  |clio mk3        |male            |14    |
+|46 |merclaamk2fensx12 |fendinebbia sx    |A2518200856 |classe a mk2    |superficiale    |12    |
+|50 |fen13             |fendinebbia dx    |            |                |indifferente    |16    |
+|51 |fen14             |fendinebbia sx    |            |                |                |27    |
+|66 |fiapunmk2qua1     |quadro strumenti  |            |punto mk2       |                |276   |
+|67 |peu307mk1qua2     |quadro strumenti  |p9652008280 |307 mk1         |plastica rotta  |35    |
+|68 |fiapanmk1qua3     |quadro strumenti  |            |panda mk1       |vetro scheggiato|34    |
+|69 |opecorbmk2qua4    |quadro strumenti  |90533933    |corsa b mk2     |                |23    |
+|70 |fiapunmk2creantsx1|cremagliera ant sx|            |punto mk2       |elettrica       |54    |
+|71 |fiapanmk2crepossx1|cremagliera pos sx|            |panda mk2       |elettrica       |76    |
+|72 |landelmk2creposdx1|cremagliera pos dx|            |delta mk2       |elettrica       |34    |
+|73 |peu208mk1creposdx2|cremagliera pos dx|            |208 mk1         |elettrica       |23    |
+|74 |alfrom156mk1com1  |compressore ac    |60653653    |alfa 156        |                |45    |
+|75 |fiapunmk2com2     |compressore ac    |0003191v009 |punto mk2       |                |65    |

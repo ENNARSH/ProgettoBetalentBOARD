@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -30,7 +31,35 @@ public class ProdottoControllerRest {
         return ResponseEntity.ok("Prodotto Salvato");
     }
 
+    @PutMapping("prodotti/{codProdotto}")
+     public ResponseEntity<Prodotto> updateProd(@RequestBody Prodotto prod, @PathVariable("codProdotto") String cod){
+        Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoBycodProdotto(cod));
+if (prodOp.isPresent()) {
+       Prodotto p = prodOp.get();
+       p.setAutoCompatibile(prod.getAutoCompatibile());
+       p.setDescrizione((prod.getDescrizione()));
+       p.setPrezzo(prod.getPrezzo());
+       p.setTipo(prod.getTipo());
+       p.setCodici(prod.getCodici());
+       p.setCodProdotto(prod.getCodProdotto());
+       service.save(p);
+       return new ResponseEntity<>(HttpStatus.OK);
 
+}else {
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+}
+    }
+
+
+    @DeleteMapping("prodotti/{codProdotto}")
+    public ResponseEntity<HttpStatus> deleteProd(@PathVariable("codProdotto") String cod) {
+        try {
+       service.deleteProdottoBycodProdotto(cod);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 }

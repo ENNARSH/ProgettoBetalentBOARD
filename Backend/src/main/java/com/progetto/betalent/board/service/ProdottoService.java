@@ -2,6 +2,7 @@ package com.progetto.betalent.board.service;
 
 import com.progetto.betalent.board.entities.Prodotto;
 import com.progetto.betalent.board.repository.ProdottoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+//utilizzo transaction per utilizzare il query method in repo deleteProdottoBycodProdotto
+@Transactional
 public class ProdottoService {
 
 
@@ -35,8 +38,13 @@ public class ProdottoService {
         repo.deleteById(id);
    }
 
+   public Prodotto findProdottoBycodProdotto(String codProdotto){
+        return repo.findProdottoBycodProdotto(codProdotto);
+   }
 
-
+ public void deleteProdottoBycodProdotto(String codProdotto){
+    repo.deleteProdottoBycodProdotto(codProdotto);
+ }
 
 
 
