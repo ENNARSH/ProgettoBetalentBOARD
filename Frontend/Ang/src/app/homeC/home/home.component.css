@@ -1,0 +1,11 @@
+.containerNav{
+    width: 99.2vw;
+}
+.container{
+    width: 99.2vw;
+    height: 100vh;
+    background-image: url(/assets/bgImg/bgProject.jpg);
+     background-size:cover;
+     opacity: 0.6;
+     
+ }
