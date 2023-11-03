@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("rest")
 public class ProdottoControllerRest {
@@ -20,35 +19,48 @@ public class ProdottoControllerRest {
     ProdottoService service;
 
 
-    @GetMapping("prodotti")
+    @GetMapping("prodotti") // visualizza prodotti
     public ResponseEntity<List<Prodotto>> getAll(){
         return new ResponseEntity<>(service.listAll(), HttpStatus.OK);
     }
 
-    @PostMapping("prodotti")
+    @PostMapping("prodotti") // salva prodotto
     public ResponseEntity<String> saveProd(@RequestBody Prodotto prod){
         service.save(prod);
         return ResponseEntity.ok("Prodotto Salvato");
     }
 
     @PutMapping("prodotti/{codProdotto}")
-     public ResponseEntity<Prodotto> updateProd(@RequestBody Prodotto prod, @PathVariable("codProdotto") String cod){
+    public ResponseEntity<Prodotto> updateProd(@RequestBody Prodotto prod, @PathVariable("codProdotto") String cod){
         Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoBycodProdotto(cod));
-if (prodOp.isPresent()) {
-       Prodotto p = prodOp.get();
-       p.setAutoCompatibile(prod.getAutoCompatibile());
-       p.setDescrizione((prod.getDescrizione()));
-       p.setPrezzo(prod.getPrezzo());
-       p.setTipo(prod.getTipo());
-       p.setCodici(prod.getCodici());
-       p.setCodProdotto(prod.getCodProdotto());
-       service.save(p);
-       return new ResponseEntity<>(HttpStatus.OK);
+        if (prodOp.isPresent()) {
+            Prodotto p = prodOp.get();
+            p.setAutoCompatibile(prod.getAutoCompatibile());
+            p.setDescrizione((prod.getDescrizione()));
+            p.setPrezzo(prod.getPrezzo());
+            p.setTipo(prod.getTipo());
+            p.setCodici(prod.getCodici());
+            p.setCodProdotto(prod.getCodProdotto());
+            service.save(p);
+            return new ResponseEntity<>(HttpStatus.OK);
 
-}else {
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-}
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
+
+
+
+//    @GetMapping("/prodotti/cerca/{auto_compatibile}") //cerca prodotto per autoCompatibile
+//    public ResponseEntity<List<Prodotto>> searchProduct(@PathVariable("auto_compatibile") String autoCompatibile){
+//        List<Prodotto> prodotti = service.findByAutoCompatibileContaining(autoCompatibile);
+//        if(prodotti.isEmpty()){
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(prodotti);
+//    }
+
+
 
 
     @DeleteMapping("prodotti/{codProdotto}")
