@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FooterComponent } from './footer/footer/footer.component';
 import { TableComponent } from './table/table/table.component';
+import { EditComponent } from './addEdit/edit/edit.component';
+import { AddComponent } from './addEdit/add/add.component';
 
 
 //
@@ -27,6 +29,8 @@ import { TableComponent } from './table/table/table.component';
     NavBarComponent,
     FooterComponent,
     TableComponent,
+    EditComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
