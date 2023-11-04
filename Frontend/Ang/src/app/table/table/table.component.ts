@@ -80,10 +80,11 @@ Elimina(codProdotto: string){
 
 //edit call method
 Modifica(codProdotto:string){
-
   this.router.navigate(['edit',codProdotto]);
 }
 
-Aggiungi(){}
+Aggiungi(){
+  this.router.navigate(['add']);
+}
 
 }
