@@ -24,7 +24,11 @@ public class User {
     @Column(name = "fullname")  //corrisponde al nome della colonna (attributo)
     private String fullname;
 
-
+public User(Long id,String username,String fullname){
+this.id = id;
+this.username = username;
+this.fullname = fullname;
+}
 
 
 

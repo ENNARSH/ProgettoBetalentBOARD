@@ -1,5 +1,5 @@
 export interface Prodotti{
-    idProdotto: number,
+    idProdotto: number | null,
     codProdotto: string,
     tipo: string,
     codici:string,

@@ -1,0 +1,12 @@
+.container{
+    width: 99.2vw;
+    height: 100vh;
+    background-image: url(/assets/bgImg/bgProject.jpg);
+     background-size:cover;
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items:center;
+     size: 40px;
+     
+ }
