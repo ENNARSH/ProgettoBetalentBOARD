@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 
 @Component({
@@ -14,11 +14,11 @@ export class EditComponent implements OnInit{
  
   
 
-  constructor(private service:TableDataServiceService, private router:ActivatedRoute){}
+  constructor(private service:TableDataServiceService, private route:ActivatedRoute , private router: Router){}
   saveCod : string = "";
   
   ngOnInit(): void {
-  this.router.paramMap.subscribe( paramMap => {
+  this.route.paramMap.subscribe( paramMap => {
     this.saveCod = paramMap.get('codProdotto')!;
 })  
   }
@@ -39,8 +39,10 @@ export class EditComponent implements OnInit{
       console.log
      }) */
      this.service.editData(this.saveCod,body).subscribe({
-     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK"),
+     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK") 
+     ,
     error: (e) => console.error("Errore : " + e.status),
      })
+     this.router.navigate(['home']);
     }
 }

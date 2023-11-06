@@ -1,7 +1,11 @@
 
   <div id="filtroCont">
-     <label for="filtro">Filtro</label>
-      <input type="text" name="filtro" id="filtro">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput    (keyup.enter)="refresh($event)"      placeholder="cerca">
+    </mat-form-field>
+  <!--    <label for="filtro">Filtro</label>
+      <input type="text" name="filtro" id="filtro"> -->
   </div>
   <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button>
 <!--   <button id="add" (click)="Aggiungi()"></button> -->
@@ -49,7 +53,7 @@
       </tbody>
     </table>  -->
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////// -->
-
+<ng-container *ngIf="!isPresent">
 <table class="darkTable">
   <thead>
   <tr>
@@ -81,7 +85,40 @@
   </tr>
   </tbody>
   </table>
+</ng-container>
 
+<ng-container *ngIf="isPresent" ><table class="darkTable">
+  <thead>
+  <tr>
+  <th>Id</th>
+  <th>Codice Prodotto</th>
+  <th>Tipo</th>
+  <th>Codice</th>
+  <th>Auto Compatibili</th>
+  <th>Descrizione</th>
+  <th>Prezzo</th>
+  <th>Priorita</th>
+  <th>Delete & Edit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+  <td>{{prodF.idProdotto}}</td>
+  <td>{{prodF.codProdotto}}</td>
+  <td>{{prodF.tipo}}</td>
+  <td>{{prodF.codici}}</td>
+  <td>{{prodF.autoCompatibile}}</td>
+  <td>{{prodF.descrizione}}</td>
+  <td>{{prodF.prezzo | currency : 'EUR'}}</td>
+  <td>{{prodF.priorita}}</td>
+  <td id="delEdit"><!-- <button (click)="Elimina(prodotto.codProdotto)">Elimina</button> -->
+    <button mat-raised-button (click)="Elimina(prodF.codProdotto)">Elimina</button>
+    <button mat-raised-button (click)="Modifica(prodF.codProdotto)">Modifica</button>
+   <!--  <button (click)="Modifica(prodotto.codProdotto)">Edit</button></td> -->
+  </tr>
+  </tbody>
+  </table></ng-container>
+  
 
 
 

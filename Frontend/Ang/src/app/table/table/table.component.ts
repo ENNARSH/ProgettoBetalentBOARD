@@ -1,35 +1,58 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Prodotti } from 'src/app/interface/Prodotti';
-import { map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit{
+export class TableComponent implements OnInit,OnChanges{
 
   prod : Prodotti[] = [];
+  prodF!: Prodotti;
   error : string = "Errore!!!"
  codProdotto : string = "";
+ isPresent : boolean = false;
+ filtro:string ="";
 
   constructor(private service:TableDataServiceService, private router: Router){}
+    
+
+  ngOnChanges(changes: SimpleChanges): void {
+   /*  this.loadMethod(); */
+   this.loadMethod();
+  }
 
   ngOnInit(): void {
-   
    this.loadMethod();
-
   }
+  
+
+  refresh = (event : any) => {
+    console.log(this.filtro)
+    this.filtro = event.target.value;
+   this.service.getProdBycodProdotto(this.filtro).subscribe({
+    next: (response) => {this.prodF = response; this.isPresent = true;} , 
+    error: (error) => {console.error(error);
+                   this.isPresent = false;}})
+   
+   
+  }
+   
 
   //api call with error (get)
   loadMethod(){
+  
     this.service.loadData().subscribe({
       next: this.handleResponse.bind(this),
       error:this.handleError.bind(this)
      });
+    
      }
 
+  
 
   handleResponse(response: Prodotti[]){
     this.prod = response;
@@ -83,5 +106,10 @@ Modifica(codProdotto:string){
 Aggiungi(){
   this.router.navigate(['add']);
 }
+
+
+
+
+
 
 }
