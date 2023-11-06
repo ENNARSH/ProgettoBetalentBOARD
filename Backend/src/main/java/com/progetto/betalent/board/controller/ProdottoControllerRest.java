@@ -62,4 +62,36 @@ if (prodOp.isPresent()) {
     }
 
 
+    @GetMapping("prodotti/trovapercod/{codProdotto}")  // ricerca per codProd
+    public ResponseEntity<Prodotto> findProdottoBycodProdotto(@PathVariable String codProdotto) {
+        Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoBycodProdotto(codProdotto));
+        if (prodOp.isPresent()) {
+            return ResponseEntity.ok(prodOp.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @GetMapping("prodotti/trovaperauto/{autoCompatibile}")  // ricerca per autoCompatibile
+    public ResponseEntity<Prodotto> findProdottoByautoCompatibile(@PathVariable String autoCompatibile) {
+        Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoByautoCompatibile(autoCompatibile));
+        if (prodOp.isPresent()) {
+            return ResponseEntity.ok(prodOp.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @GetMapping("prodotti/trovapertipoeauto/{tipo}/{autoCompatibile}")  // ricerca per codProd
+    public ResponseEntity<Prodotto> findProdottoByTipoAndAutoCompatibile(@PathVariable String tipo, @PathVariable String autoCompatibile) {
+        Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoByTipoAndAutoCompatibile(tipo, autoCompatibile));
+        if (prodOp.isPresent()) {
+            return ResponseEntity.ok(prodOp.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

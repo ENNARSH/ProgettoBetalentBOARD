@@ -47,6 +47,15 @@ public class ProdottoService {
  }
 
 
+    public Prodotto findProdottoByTipoAndAutoCompatibile(String tipo, String autoCompatibile){
+        return repo.findProdottoByTipoAndAutoCompatibile(tipo, autoCompatibile);
+    }
+
+
+    public Prodotto findProdottoByautoCompatibile(String autoCompatibile) {
+        return repo.findProdottoByautoCompatibile(autoCompatibile);
+    }
+
 
 
 

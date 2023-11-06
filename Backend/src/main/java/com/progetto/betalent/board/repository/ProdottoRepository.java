@@ -10,4 +10,8 @@ public interface ProdottoRepository extends JpaRepository<Prodotto,Long> {
 
     public Prodotto findProdottoBycodProdotto(String codProdotto);
     public void deleteProdottoBycodProdotto(String codProdotto);
+
+    public Prodotto findProdottoByTipoAndAutoCompatibile(String tipo, String autoCompatibile);
+
+    public Prodotto findProdottoByautoCompatibile(String autoCompatibile);
 }
