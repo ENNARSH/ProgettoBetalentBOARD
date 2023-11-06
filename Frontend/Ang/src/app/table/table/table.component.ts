@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prodotti } from 'app/interface/Prodotti';
 import { TableDataServiceService } from 'app/services/table-data-service.service';
 import { map } from 'rxjs';
@@ -14,16 +15,24 @@ export class TableComponent implements OnInit{
   ]
   prod : Prodotti[] = [];
   error : string = "Errore!!!"
-  constructor(private service:TableDataServiceService){}
+ codProdotto : string = "";
+
+  constructor(private service:TableDataServiceService, private router: Router){}
+
   ngOnInit(): void {
    
-    //api call with error
- this.service.loadData().subscribe({
-  next: this.handleResponse.bind(this),
-  error:this.handleError.bind(this)
- });
+   this.loadMethod();
 
   }
+
+  //api call with error (get)
+  loadMethod(){
+    this.service.loadData().subscribe({
+      next: this.handleResponse.bind(this),
+      error:this.handleError.bind(this)
+     });
+     }
+
 
   handleResponse(response: Prodotti[]){
     this.prod = response;
@@ -32,10 +41,50 @@ export class TableComponent implements OnInit{
   handleError(error:Object){
     this.error = error.toString();
   }
+  //
 
   //simple api call
   /*
 this.service.loadData().subscribe((data) => {
   this.prod = data;
 })*/
+
+//
+
+
+//delete call method 
+Elimina(codProdotto: string){
+  this.codProdotto = codProdotto;
+  this.service.delProdByCodProd(codProdotto).subscribe({
+    next: this.handleOkDelete.bind(this),
+    error: this.handleErrDelete.bind(this)
+  });
+  }
+  handleOkDelete(response: any) {
+    this.prod = this.prod.filter(item => item.codProdotto !== this.codProdotto);
+    this.codProdotto = "";
+
+  }
+
+  handleErrDelete(error: any) {
+    console.log(error);
+    this.error = error.error.message;
+  }
+
+//
+
+
+
+
+
+
+//edit call method
+Modifica(codProdotto:string){
+  this.router.navigate(['edit',codProdotto]);
+}
+
+Aggiungi(){
+  this.router.navigate(['add']);
+}
+
 }

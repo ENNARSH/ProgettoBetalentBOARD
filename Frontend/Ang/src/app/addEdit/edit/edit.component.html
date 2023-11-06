@@ -1,0 +1,30 @@
+<div class="container">
+    <form #editform="ngForm" (ngSubmit)="onSubmit(editform)">
+        <h1>Edit Form</h1>
+        <mat-form-field>
+          <mat-label>Codice Prodotto</mat-label>
+          <input matInput readonly name="codProdotto" [(ngModel)]="saveCod">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Tipo</mat-label>
+          <input matInput name="tipo"  ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Codici</mat-label>
+          <input matInput name="codici" ngModel>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Auto compatibili</mat-label>
+          <input matInput name="autoCompatibile"  ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Descrizione</mat-label>
+          <textarea matInput name="descrizione"  ngModel></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Prezzo</mat-label>
+          <input matInput name="prezzo" ngModel>
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="!editform.valid">Invia</button>
+       </form>
+</div>
