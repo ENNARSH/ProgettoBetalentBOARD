@@ -18,6 +18,8 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { TableComponent } from './table/table/table.component';
 import { EditComponent } from './addEdit/edit/edit.component';
 import { AddComponent } from './addEdit/add/add.component';
+import { RegisterComponent } from './registration/register/register.component';
+import { LoginComponent } from './login/login/login.component';
 
 
 //
@@ -31,6 +33,8 @@ import { AddComponent } from './addEdit/add/add.component';
     TableComponent,
     EditComponent,
     AddComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

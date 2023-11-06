@@ -1,8 +1,8 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Prodotti } from 'app/interface/Prodotti';
-import { TableDataServiceService } from 'app/services/table-data-service.service';
+import { Prodotti } from 'src/app/interface/Prodotti';
 import { map } from 'rxjs';
+import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
