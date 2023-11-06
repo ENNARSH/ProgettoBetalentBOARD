@@ -22,12 +22,11 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { TableComponent } from './table/table/table.component';
 import { EditComponent } from './addEdit/edit/edit.component';
 import { AddComponent } from './addEdit/add/add.component';
-<<<<<<< HEAD
+
 import { RegisterComponent } from './registration/register/register.component';
 import { LoginComponent } from './login/login/login.component';
-=======
 import { ErrorComponent } from './error/error/error.component';
->>>>>>> 08aee9c6ae7c1fd5e24c8ced04608c33ed9668d5
+
 
 
 
@@ -40,12 +39,10 @@ import { ErrorComponent } from './error/error/error.component';
     TableComponent,
     EditComponent,
     AddComponent,
-<<<<<<< HEAD
     RegisterComponent,
-    LoginComponent
-=======
+    LoginComponent,
     ErrorComponent,
->>>>>>> 08aee9c6ae7c1fd5e24c8ced04608c33ed9668d5
+
   ],
   imports: [
     BrowserModule,

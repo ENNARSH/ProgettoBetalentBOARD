@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Prodotti } from 'src/app/interface/Prodotti';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,21 @@ export class TableDataServiceService implements OnInit{
  
  
   ngOnInit(): void {
-       this.loadData();
+   
   }
   
   loadData(){
-        return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti`);
+    /* let headers = new HttpHeaders(
+      {Authorization: 'Basic' + window.btoa(user + ":" + password)}
+    ) */
+        return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti`/*  {headers} */);
+  }  
+
+  getProdBycodProdotto(codProdotto:string){
+    /* let headers = new HttpHeaders(
+      {Authorization: 'Basic' + window.btoa(user + ":" + password)}
+    ) */
+        return this.http.get<Prodotti>(`http://${this.server}:${this.port}/rest/prodotti/trovapercod/${codProdotto}`);
   }  
   
 

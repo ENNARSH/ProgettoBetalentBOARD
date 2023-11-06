@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TableDataServiceService } from 'app/services/table-data-service.service';
-import {ActivatedRoute} from '@angular/router';
+
+import {ActivatedRoute, Router} from '@angular/router';
+import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 
 @Component({
   selector: 'app-edit',
@@ -13,11 +14,11 @@ export class EditComponent implements OnInit{
  
   
 
-  constructor(private service:TableDataServiceService, private router:ActivatedRoute){}
+  constructor(private service:TableDataServiceService, private route:ActivatedRoute , private router: Router){}
   saveCod : string = "";
   
   ngOnInit(): void {
-  this.router.paramMap.subscribe( paramMap => {
+  this.route.paramMap.subscribe( paramMap => {
     this.saveCod = paramMap.get('codProdotto')!;
 })  
   }
@@ -30,15 +31,18 @@ export class EditComponent implements OnInit{
       codici: form.value.codici,
       autoCompatibile: form.value.autoCompatibile,
       descrizione: form.value.descrizione,
-      prezzo: form.value.prezzo
+      prezzo: form.value.prezzo,
+      priorita:form.value.priorita,
      }
 /*      this.service.editData(this.saveCod,body).subscribe(response => {console.log("Prodotto modificato" + response.status)},
      error => {
       console.log
      }) */
      this.service.editData(this.saveCod,body).subscribe({
-     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK"),
+     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK") 
+     ,
     error: (e) => console.error("Errore : " + e.status),
      })
+     this.router.navigate(['home']);
     }
 }

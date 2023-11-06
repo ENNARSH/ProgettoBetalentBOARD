@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TableDataServiceService } from 'app/services/table-data-service.service';
+import { Router } from '@angular/router';
+import { TableDataServiceService } from 'src/app/services/table-data-service.service';
+
 
 @Component({
   selector: 'app-add',
@@ -10,7 +12,7 @@ import { TableDataServiceService } from 'app/services/table-data-service.service
 export class AddComponent {
 /* @ViewChild('addform') addform : NgForm | undefined */
 
-constructor(private service:TableDataServiceService){}
+constructor(private service:TableDataServiceService, private router: Router){}
 
 
 /*   onSubmit(form : NgForm){} */
@@ -22,8 +24,10 @@ constructor(private service:TableDataServiceService){}
     codici: form.value.codici,
     autoCompatibile: form.value.autoCompatibile,
     descrizione: form.value.descrizione,
-    prezzo: form.value.prezzo
+    prezzo: form.value.prezzo,
+    priorita: form.value.priorita,
    }
    this.service.addData(body).subscribe((response) => console.log(response))
+   this.router.navigate(['home']);
   }
 }
