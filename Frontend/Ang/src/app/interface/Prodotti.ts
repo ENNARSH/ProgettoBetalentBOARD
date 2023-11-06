@@ -5,5 +5,6 @@ export interface Prodotti{
     codici:string,
     autoCompatibile: string,
     descrizione: string,
-    prezzo: number
+    prezzo: number,
+    priorita:number,
 }

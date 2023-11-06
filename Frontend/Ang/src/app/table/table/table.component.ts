@@ -9,10 +9,7 @@ import { TableDataServiceService } from 'src/app/services/table-data-service.ser
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit{
-  prodotti: Prodotti[]  = [
-    {idProdotto: 1 , codProdotto: 'Test' , tipo : 'testiamo' , codici : 'AB45CD34' , autoCompatibile : 'nissan' , descrizione : 'auto bella' , prezzo : 15},
-    {idProdotto: 2 , codProdotto: 'Test2' , tipo : 'testiamo2' , codici : 'AB45CD3422' , autoCompatibile : 'nissan2' , descrizione : 'auto bella2' , prezzo : 152},
-  ]
+
   prod : Prodotti[] = [];
   error : string = "Errore!!!"
  codProdotto : string = "";

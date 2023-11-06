@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TableDataServiceService } from 'app/services/table-data-service.service';
+import { TableDataServiceService } from 'src/app/services/table-data-service.service';
+
 
 @Component({
   selector: 'app-add',
@@ -22,7 +23,8 @@ constructor(private service:TableDataServiceService){}
     codici: form.value.codici,
     autoCompatibile: form.value.autoCompatibile,
     descrizione: form.value.descrizione,
-    prezzo: form.value.prezzo
+    prezzo: form.value.prezzo,
+    priorita: form.value.priorita,
    }
    this.service.addData(body).subscribe((response) => console.log(response))
   }

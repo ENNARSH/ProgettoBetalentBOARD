@@ -60,6 +60,7 @@
   <th>Auto Compatibili</th>
   <th>Descrizione</th>
   <th>Prezzo</th>
+  <th>Priorita</th>
   <th>Delete & Edit</th>
   </tr>
   </thead>
@@ -72,6 +73,7 @@
   <td>{{prodotto.autoCompatibile}}</td>
   <td>{{prodotto.descrizione}}</td>
   <td>{{prodotto.prezzo | currency : 'EUR'}}</td>
+  <td>{{prodotto.priorita}}</td>
   <td id="delEdit"><!-- <button (click)="Elimina(prodotto.codProdotto)">Elimina</button> -->
     <button mat-raised-button (click)="Elimina(prodotto.codProdotto)">Elimina</button>
     <button mat-raised-button (click)="Modifica(prodotto.codProdotto)">Modifica</button>
