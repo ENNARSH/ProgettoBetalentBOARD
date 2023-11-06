@@ -27,6 +27,13 @@ export class TableDataServiceService implements OnInit{
 
     this.http.delete<string>(`http://${this.server}:${this.port}/rest/prodotti/${codProdotto}`);
   
+
+  addData(body: Prodotti){
+    return this.http.post(`http://${this.server}:${this.port}/rest/prodotti`, body,{responseType: 'text'});
+  }
   
+  editData(codProdotto:string , body:Prodotti){
+    return this.http.put(`http://${this.server}:${this.port}/rest/prodotti/${codProdotto}`,body,{observe:'response'});
+  }
   
 }
