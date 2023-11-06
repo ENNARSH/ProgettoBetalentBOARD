@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("rest")
 public class ProdottoControllerRest {
@@ -48,17 +49,6 @@ public class ProdottoControllerRest {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
-//    @GetMapping("/prodotti/cerca/{auto_compatibile}") //cerca prodotto per autoCompatibile
-//    public ResponseEntity<List<Prodotto>> searchProduct(@PathVariable("auto_compatibile") String autoCompatibile){
-//        List<Prodotto> prodotti = service.findByAutoCompatibileContaining(autoCompatibile);
-//        if(prodotti.isEmpty()){
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok(prodotti);
-//    }
 
 
     @DeleteMapping("prodotti/{codProdotto}")

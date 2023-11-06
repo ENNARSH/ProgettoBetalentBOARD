@@ -1,9 +1,10 @@
 export interface Prodotti{
-    idProdotto: number,
+    idProdotto: number | null,
     codProdotto: string,
     tipo: string,
     codici:string,
     autoCompatibile: string,
     descrizione: string,
-    prezzo: number
+    prezzo: number,
+    priorita:number,
 }

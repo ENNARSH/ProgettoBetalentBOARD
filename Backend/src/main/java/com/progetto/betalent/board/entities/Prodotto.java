@@ -41,6 +41,8 @@ public class Prodotto {
 	@Column(name = "prezzo") // 39
 	private Long prezzo;
 
+	@Column(name = "priorita") 
+	private Integer priorita;
 
 }
 

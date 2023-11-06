@@ -1,3 +1,10 @@
+
+  <div id="filtroCont">
+     <label for="filtro">Filtro</label>
+      <input type="text" name="filtro" id="filtro">
+  </div>
+  <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button>
+<!--   <button id="add" (click)="Aggiungi()"></button> -->
 <div class="tableContainer">
        
 <!--     <table class="tabella" >
@@ -53,6 +60,7 @@
   <th>Auto Compatibili</th>
   <th>Descrizione</th>
   <th>Prezzo</th>
+  <th>Priorita</th>
   <th>Delete & Edit</th>
   </tr>
   </thead>
@@ -65,7 +73,11 @@
   <td>{{prodotto.autoCompatibile}}</td>
   <td>{{prodotto.descrizione}}</td>
   <td>{{prodotto.prezzo | currency : 'EUR'}}</td>
-  <td></td>
+  <td>{{prodotto.priorita}}</td>
+  <td id="delEdit"><!-- <button (click)="Elimina(prodotto.codProdotto)">Elimina</button> -->
+    <button mat-raised-button (click)="Elimina(prodotto.codProdotto)">Elimina</button>
+    <button mat-raised-button (click)="Modifica(prodotto.codProdotto)">Modifica</button>
+   <!--  <button (click)="Modifica(prodotto.codProdotto)">Edit</button></td> -->
   </tr>
   </tbody>
   </table>
