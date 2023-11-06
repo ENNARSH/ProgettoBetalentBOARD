@@ -23,7 +23,7 @@ public class User {
     @Column(name = "fullname")  //corrisponde al nome della colonna (attributo)
     private String fullname;
 
-<<<<<<< HEAD
+
     public User(String username, String password, String fullname) {
         this.username = username;
         this.password = password;
@@ -32,13 +32,7 @@ public class User {
 
     public User() {
     }
-=======
-public User(Long id,String username,String fullname){
-this.id = id;
-this.username = username;
-this.fullname = fullname;
-}
->>>>>>> 08aee9c6ae7c1fd5e24c8ced04608c33ed9668d5
+
 
     public Long getId() {
         return id;
