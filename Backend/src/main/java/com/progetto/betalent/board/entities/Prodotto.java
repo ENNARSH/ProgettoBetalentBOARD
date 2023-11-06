@@ -29,7 +29,7 @@ public class Prodotto {
 	@Column(name = "tipo") // fendinebbia sx
 	private String tipo;
 
-	@Column(name = "codici") // 0265809118
+	@Column(name = "codici") // 0265809118 codice universale del produttore del ricambio
 	private String codici;
 
 	@Column(name = "auto_compatibile") // qashqai mk1
