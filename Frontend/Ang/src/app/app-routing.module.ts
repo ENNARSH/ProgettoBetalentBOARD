@@ -5,12 +5,15 @@ import { EditComponent } from './addEdit/edit/edit.component';
 import { AddComponent } from './addEdit/add/add.component';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error/error.component';
+import { PreventivoComponent } from './preventivo/preventivo/preventivo.component';
+
 
 const routes: Routes = [
   {path:"" , component: HomeComponent,},
   {path:"home" , component: HomeComponent,},
+  {path:"preventivo" , component: PreventivoComponent},
   {path:"edit/:codProdotto" , component: EditComponent,},
-  {path:"edit" , component: EditComponent,},
+  {path:"edit" , component: ErrorComponent,},
   {path:"add" , component: AddComponent,},
   {path:'**', component: ErrorComponent}//da finire
 ];

@@ -26,6 +26,8 @@ import { AddComponent } from './addEdit/add/add.component';
 import { RegisterComponent } from './registration/register/register.component';
 import { LoginComponent } from './login/login/login.component';
 import { ErrorComponent } from './error/error/error.component';
+import { PreventivoComponent } from './preventivo/preventivo/preventivo.component';
+
 
 
 
@@ -42,6 +44,8 @@ import { ErrorComponent } from './error/error/error.component';
     RegisterComponent,
     LoginComponent,
     ErrorComponent,
+    PreventivoComponent,
+  
 
   ],
   imports: [

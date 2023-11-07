@@ -1,0 +1,53 @@
+<div class="container" >
+
+ <ng-container *ngIf="isEmpty" >
+    <form #prevform="ngForm" (ngSubmit)="onSubmit(prevform)">
+     <h1>Preventivo Form</h1>
+     <mat-form-field>
+        <mat-label>Modello Auto</mat-label>
+        <input matInput name="autoCompatibile"  ngModel required>
+      </mat-form-field>
+     <mat-form-field>
+       <mat-label>Budget</mat-label>
+       <input matInput name="budget"  ngModel required type="number">
+     </mat-form-field>
+ 
+
+     <button mat-raised-button type="submit" [disabled]="!prevform.valid">Invia</button>
+    </form>
+
+    
+</ng-container>
+
+<div class="tableContainer">
+    <ng-container *ngIf="!isEmpty" >
+        <table class="darkTable">
+            <thead>
+            <tr>
+            <th>Id</th>
+            <th>Codice Prodotto</th>
+            <th>Tipo</th>
+            <th>Codice</th>
+            <th>Auto Compatibili</th>
+            <th>Descrizione</th>
+            <th>Prezzo</th>
+            <th>Priorita</th>
+          
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prodotto of prod">
+            <td>{{prodotto.idProdotto}}</td>
+            <td>{{prodotto.codProdotto}}</td>
+            <td>{{prodotto.tipo}}</td>
+            <td>{{prodotto.codici}}</td>
+            <td>{{prodotto.autoCompatibile}}</td>
+            <td>{{prodotto.descrizione}}</td>
+            <td>{{prodotto.prezzo | currency : 'EUR'}}</td>
+            <td>{{prodotto.priorita}}</td>
+            </tr>
+            </tbody>
+            </table>
+    </ng-container>
+  </div>
+     </div>
