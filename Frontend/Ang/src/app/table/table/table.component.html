@@ -7,52 +7,10 @@
   <!--    <label for="filtro">Filtro</label>
       <input type="text" name="filtro" id="filtro"> -->
   </div>
-  <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button>
-<!--   <button id="add" (click)="Aggiungi()"></button> -->
+  <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button><button mat-raised-button id="prevent" (click)="VaiPrev()">Fai preventivo</button>
+
 <div class="tableContainer">
-       
-<!--     <table class="tabella" >
-      <thead>
-        <tr>
-                        <th >Id</th>
-                        <th>Codice Prodotto</th>
-                        <th >Tipo</th>
-                        <th >Codici Ricerca Web</th>
-          <th >Auto Compatibili</th>
-          <th >Descrizione</th>
-          <th >Prezzo</th>
-                       
-                    </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let prodotto of prodotti">
-          <td >{{prodotto.idProdotto}}</td>
-          <td >{{prodotto.codProdotto}}</td>
-          <td >{{prodotto.tipo}}</td>
-          <td >{{prodotto.codici}}</td>
-          <td >{{prodotto.autoCompatibile}}</td>
-          <td >{{prodotto.descrizione}}</td>
-          <td >{{prodotto.prezzo | currency : 'EUR'}}</td>
-    
 
-          <td >
-            <button href="#" class="btn btn-light text-danger">Elimina</button>
-                            <div>
-                                <button href="#" data-bs-toggle="dropdown" class="btn btn-light">
-                <i ></i>
-              </button>
-                                <ul >
-                                    <li><a class="dropdown-item" href="#">Dettaglio</a></li>
-                                    <li><a class="dropdown-item" href="#">Info</a></li>
-                                    <li><a class="dropdown-item" href="#">Modifica</a></li>
-                                </ul>
-                            </div> 
-                       </td>
-
-        </tr>
-      </tbody>
-    </table>  -->
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////// -->
 <ng-container *ngIf="!isPresent">
 <table class="darkTable">
   <thead>

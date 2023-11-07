@@ -16,11 +16,31 @@ export class EditComponent implements OnInit{
 
   constructor(private service:TableDataServiceService, private route:ActivatedRoute , private router: Router){}
   saveCod : string = "";
+  priorita :number = 0;
+  prezzo :number = 0;
+  tipo: string ="";
+  codici:string ="";
+  autoCompatibili:string= "";
+  descrizione:string ="";
   
   ngOnInit(): void {
   this.route.paramMap.subscribe( paramMap => {
     this.saveCod = paramMap.get('codProdotto')!;
 })  
+ this.service.getProdBycodProdotto(this.saveCod).subscribe((response) => {
+  this.autoCompatibili = response.autoCompatibile
+   this.priorita = response.priorita
+   this.prezzo = response.prezzo
+   this.tipo = response.tipo
+   this.codici = response.codici
+   this.descrizione = response.descrizione                                                                            
+
+
+
+
+
+})
+
   }
 
     onSubmit(form : NgForm){

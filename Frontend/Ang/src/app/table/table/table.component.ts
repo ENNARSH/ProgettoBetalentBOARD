@@ -107,6 +107,10 @@ Aggiungi(){
   this.router.navigate(['add']);
 }
 
+VaiPrev(){
+  this.router.navigate(['preventivo'])
+}
+
 
 
 

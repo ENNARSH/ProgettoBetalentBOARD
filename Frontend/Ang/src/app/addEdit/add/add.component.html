@@ -13,7 +13,7 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Codici</mat-label>
-    <input matInput name="codici" ngModel>
+    <input matInput name="codici" ngModel required>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Auto compatibili</mat-label>
@@ -21,16 +21,17 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Descrizione</mat-label>
-    <textarea matInput name="descrizione"  ngModel></textarea>
+    <textarea matInput name="descrizione"  ngModel required></textarea>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Prezzo</mat-label>
-    <input matInput name="prezzo" ngModel>
+    <input matInput name="prezzo" ngModel type="number" required>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Priorita</mat-label>
-    <input matInput name="priorita" ngModel>
+    <mat-label>Priorita (1-10)</mat-label>
+    <input matInput name="priorita" ngModel type="number" min="1" max="10" required>
   </mat-form-field>
+  
   <button mat-raised-button type="submit" [disabled]="!addform.valid">Invia</button>
  </form>
   </div>
