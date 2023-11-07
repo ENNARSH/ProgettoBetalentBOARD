@@ -31,10 +31,7 @@ public class SecurityConfig {
         http.csrf().disable().authorizeHttpRequests()
 
 
-                .requestMatchers(new AntPathRequestMatcher("/rest/prodotti")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/rest/prodotti/trovapercod/")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/rest/prodotti/trovaperauto/")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/rest/prodotti/trovapertipoeauto/")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/rest/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/home")).permitAll().and()
                 .formLogin()
