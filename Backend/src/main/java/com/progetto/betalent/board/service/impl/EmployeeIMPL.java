@@ -3,9 +3,9 @@ package com.progetto.betalent.board.service.impl;
 
 import com.progetto.betalent.board.dto.EmployeeDTO;
 import com.progetto.betalent.board.dto.LoginDTO;
-import com.progetto.betalent.board.entitys.Employee;
+import com.progetto.betalent.board.entities.Employee;
 import com.progetto.betalent.board.payloadResponse.LoginMesage;
-import com.progetto.betalent.board.repo.EmployeeRepo;
+import com.progetto.betalent.board.repository.EmployeeRepo;
 import com.progetto.betalent.board.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

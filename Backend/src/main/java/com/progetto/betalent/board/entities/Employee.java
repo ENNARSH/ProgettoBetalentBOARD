@@ -1,4 +1,4 @@
-package com.progetto.betalent.board.entitys;
+package com.progetto.betalent.board.entities;
 
 
 
