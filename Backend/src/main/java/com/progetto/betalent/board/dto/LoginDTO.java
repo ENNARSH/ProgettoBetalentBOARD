@@ -3,7 +3,6 @@ package com.progetto.betalent.board.dto;
 public class LoginDTO {
     private String email;
     private String password;
-
     public LoginDTO() {
     }
 

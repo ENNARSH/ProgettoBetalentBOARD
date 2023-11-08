@@ -8,12 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 //utilizzo transaction per utilizzare il query method in repo deleteProdottoBycodProdotto
 @Transactional
 public class ProdottoService {
-
 
 
     @Autowired

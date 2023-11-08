@@ -21,7 +21,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private EmployeeRepo employeeRepo;
 
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Employee user = employeeRepo.findByEmail(email);

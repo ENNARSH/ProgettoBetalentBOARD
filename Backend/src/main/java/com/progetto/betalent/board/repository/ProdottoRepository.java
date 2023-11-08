@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ProdottoRepository extends JpaRepository<Prodotto,Long> {
-
-
     public Prodotto findProdottoBycodProdotto(String codProdotto);
     public void deleteProdottoBycodProdotto(String codProdotto);
 

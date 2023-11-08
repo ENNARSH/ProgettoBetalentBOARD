@@ -9,7 +9,6 @@ public class EmployeeDTO {
 
     public EmployeeDTO() {
     }
-
     public EmployeeDTO(int employeeid, String employeename, String email, String password) {
         this.employeeid = employeeid;
         this.employeename = employeename;

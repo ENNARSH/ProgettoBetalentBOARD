@@ -1,9 +1,7 @@
 package com.progetto.betalent.board.entities;
 
 
-
 import jakarta.persistence.*;
-
 
 
 @Entity

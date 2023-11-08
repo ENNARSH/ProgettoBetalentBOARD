@@ -3,7 +3,6 @@ package com.progetto.betalent.board.payloadResponse;
 public class LoginMesage {
     String message;
     Boolean status;
-
     public String getMessage() {
         return message;
     }

@@ -3,7 +3,6 @@ package com.progetto.betalent.board.repository;
 
 
 
-
 import com.progetto.betalent.board.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
