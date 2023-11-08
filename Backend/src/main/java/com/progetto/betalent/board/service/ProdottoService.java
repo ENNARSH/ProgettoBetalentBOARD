@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 //utilizzo transaction per utilizzare il query method in repo deleteProdottoBycodProdotto
@@ -46,6 +46,7 @@ public class ProdottoService {
     repo.deleteProdottoBycodProdotto(codProdotto);
  }
 
+
     public Prodotto findProdottoByTipoAndAutoCompatibile(String tipo, String autoCompatibile){
         return repo.findProdottoByTipoAndAutoCompatibile(tipo, autoCompatibile);
     }
@@ -54,4 +55,12 @@ public class ProdottoService {
     public Prodotto findProdottoByautoCompatibile(String autoCompatibile) {
         return repo.findProdottoByautoCompatibile(autoCompatibile);
     }
+
+    public List<Prodotto> findAllProdottoByautoCompatibile(String autoCompatibile) {
+        return repo.findAllProdottoByautoCompatibile(autoCompatibile);
+    }
+
+
+
+
 }

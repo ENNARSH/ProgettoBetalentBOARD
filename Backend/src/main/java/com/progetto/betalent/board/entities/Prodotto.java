@@ -44,5 +44,9 @@ public class Prodotto {
 	@Column(name = "priorita") 
 	private Integer priorita;
 
-}
+
+
+	}
+
+
 

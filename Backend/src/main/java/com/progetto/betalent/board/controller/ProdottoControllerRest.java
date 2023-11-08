@@ -20,12 +20,12 @@ public class ProdottoControllerRest {
     ProdottoService service;
 
 
-    @GetMapping("prodotti") // visualizza prodotti
+    @GetMapping("prodotti")
     public ResponseEntity<List<Prodotto>> getAll(){
         return new ResponseEntity<>(service.listAll(), HttpStatus.OK);
     }
 
-    @PostMapping("prodotti") // salva prodotto
+    @PostMapping("prodotti")
     public ResponseEntity<String> saveProd(@RequestBody Prodotto prod){
         service.save(prod);
         return ResponseEntity.ok("Prodotto Salvato");
@@ -73,7 +73,7 @@ public class ProdottoControllerRest {
     }
 
 
-   @GetMapping("prodotti/trovaperauto/{autoCompatibile}")  // ricerca per autoCompatibile
+    @GetMapping("prodotti/trovaperauto/{autoCompatibile}")  // ricerca per autoCompatibile
     public ResponseEntity<Prodotto> findProdottoByautoCompatibile(@PathVariable String autoCompatibile) {
         Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoByautoCompatibile(autoCompatibile));
         if (prodOp.isPresent()) {
@@ -94,6 +94,27 @@ public class ProdottoControllerRest {
         }
     }
 
+    @GetMapping("prodotti/{auto}/{budget}")
+    public ResponseEntity<List<Prodotto>> proviamo(@PathVariable String auto, @PathVariable Double budget) {
+        List<Prodotto> prodotti = service.findAllProdottoByautoCompatibile(auto);
+        List<Prodotto> result = new ArrayList<>();
+        long totalCost = 0;
 
+        prodotti.sort(Comparator.comparingDouble(p -> (double) p.getPrezzo() / p.getPriorita())); // Ordina i prodotti in base al rapporto prezzo/priorità
+
+        for (Prodotto prodotto : prodotti) {
+            long currentCost = prodotto.getPrezzo();
+
+            if (totalCost + currentCost <= budget) {
+                totalCost += currentCost;
+                result.add(prodotto);
+            } else {
+                prodotto.setDescrizione(prodotto.getDescrizione() + " - Out of Budget");
+                result.add(prodotto);
+            }
+        }
+
+        return ResponseEntity.ok(result);
+    }
 
 }

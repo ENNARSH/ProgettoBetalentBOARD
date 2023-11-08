@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 
 
@@ -11,7 +12,7 @@ import { TableDataServiceService } from 'src/app/services/table-data-service.ser
 export class AddComponent {
 /* @ViewChild('addform') addform : NgForm | undefined */
 
-constructor(private service:TableDataServiceService){}
+constructor(private service:TableDataServiceService, private router: Router){}
 
 
 /*   onSubmit(form : NgForm){} */
@@ -27,5 +28,6 @@ constructor(private service:TableDataServiceService){}
     priorita: form.value.priorita,
    }
    this.service.addData(body).subscribe((response) => console.log(response))
+   this.router.navigate(['home']);
   }
 }

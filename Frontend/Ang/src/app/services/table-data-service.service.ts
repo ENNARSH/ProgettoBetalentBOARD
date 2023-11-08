@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prodotti } from 'src/app/interface/Prodotti';
 
 
@@ -8,18 +9,28 @@ import { Prodotti } from 'src/app/interface/Prodotti';
 })
 export class TableDataServiceService implements OnInit{
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
  
   server : string = "localhost";
   port : string = "8080";
- 
+ prod: Prodotti[] = [];
  
   ngOnInit(): void {
-       this.loadData();
+   
   }
   
   loadData(){
-        return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti`);
+    /* let headers = new HttpHeaders(
+      {Authorization: 'Basic' + window.btoa(user + ":" + password)}
+    ) */
+        return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti`/*  {headers} */);
+  }  
+
+  getProdBycodProdotto(codProdotto:string){
+    /* let headers = new HttpHeaders(
+      {Authorization: 'Basic' + window.btoa(user + ":" + password)}
+    ) */
+        return this.http.get<Prodotti>(`http://${this.server}:${this.port}/rest/prodotti/trovapercod/${codProdotto}`);
   }  
   
 
@@ -35,5 +46,14 @@ export class TableDataServiceService implements OnInit{
   editData(codProdotto:string , body:Prodotti){
     return this.http.put(`http://${this.server}:${this.port}/rest/prodotti/${codProdotto}`,body,{observe:'response'});
   }
+
+  prevData(/* params:HttpParams */autoCompatibile:string,budget:number){
+    return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti/${autoCompatibile}/${budget}`)
+
+  }
+
   
+   
 }
+  
+

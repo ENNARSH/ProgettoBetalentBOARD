@@ -31,6 +31,7 @@ public class SecurityConfig {
         http.csrf().disable().authorizeHttpRequests()
 
 
+                .requestMatchers(new AntPathRequestMatcher("/rest/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/home")).permitAll().and()
                 .formLogin()

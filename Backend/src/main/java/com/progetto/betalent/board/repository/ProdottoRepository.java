@@ -4,6 +4,8 @@ import com.progetto.betalent.board.entities.Prodotto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProdottoRepository extends JpaRepository<Prodotto,Long> {
 
@@ -13,5 +15,10 @@ public interface ProdottoRepository extends JpaRepository<Prodotto,Long> {
 
     public Prodotto findProdottoByTipoAndAutoCompatibile(String tipo, String autoCompatibile);
 
+    public List<Prodotto> findProdottiByautoCompatibile(String autoCompatibile);
+
     public Prodotto findProdottoByautoCompatibile(String autoCompatibile);
+
+    public List<Prodotto> findAllProdottoByautoCompatibile(String autoCompatibile);
+
 }

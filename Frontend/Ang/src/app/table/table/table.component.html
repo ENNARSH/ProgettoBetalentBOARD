@@ -1,55 +1,17 @@
 
   <div id="filtroCont">
-     <label for="filtro">Filtro</label>
-      <input type="text" name="filtro" id="filtro">
+    <mat-form-field>
+      <mat-label >Filtro per codice prodotto</mat-label>
+      <input matInput    (keyup.enter)="refresh($event)"      placeholder="cerca">
+    </mat-form-field>
+  <!--    <label for="filtro">Filtro</label>
+      <input type="text" name="filtro" id="filtro"> -->
   </div>
-  <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button>
-<!--   <button id="add" (click)="Aggiungi()"></button> -->
+  <button mat-raised-button id="add" (click)="Aggiungi()">Aggiungi Ricambio</button><button mat-raised-button id="prevent" (click)="VaiPrev()">Fai preventivo</button>
+
 <div class="tableContainer">
-       
-<!--     <table class="tabella" >
-      <thead>
-        <tr>
-                        <th >Id</th>
-                        <th>Codice Prodotto</th>
-                        <th >Tipo</th>
-                        <th >Codici Ricerca Web</th>
-          <th >Auto Compatibili</th>
-          <th >Descrizione</th>
-          <th >Prezzo</th>
-                       
-                    </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let prodotto of prodotti">
-          <td >{{prodotto.idProdotto}}</td>
-          <td >{{prodotto.codProdotto}}</td>
-          <td >{{prodotto.tipo}}</td>
-          <td >{{prodotto.codici}}</td>
-          <td >{{prodotto.autoCompatibile}}</td>
-          <td >{{prodotto.descrizione}}</td>
-          <td >{{prodotto.prezzo | currency : 'EUR'}}</td>
-    
 
-          <td >
-            <button href="#" class="btn btn-light text-danger">Elimina</button>
-                            <div>
-                                <button href="#" data-bs-toggle="dropdown" class="btn btn-light">
-                <i ></i>
-              </button>
-                                <ul >
-                                    <li><a class="dropdown-item" href="#">Dettaglio</a></li>
-                                    <li><a class="dropdown-item" href="#">Info</a></li>
-                                    <li><a class="dropdown-item" href="#">Modifica</a></li>
-                                </ul>
-                            </div> 
-                       </td>
-
-        </tr>
-      </tbody>
-    </table>  -->
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////// -->
-
+<ng-container *ngIf="!isPresent">
 <table class="darkTable">
   <thead>
   <tr>
@@ -81,7 +43,40 @@
   </tr>
   </tbody>
   </table>
+</ng-container>
 
+<ng-container *ngIf="isPresent" ><table class="darkTable">
+  <thead>
+  <tr>
+  <th>Id</th>
+  <th>Codice Prodotto</th>
+  <th>Tipo</th>
+  <th>Codice</th>
+  <th>Auto Compatibili</th>
+  <th>Descrizione</th>
+  <th>Prezzo</th>
+  <th>Priorita</th>
+  <th>Delete & Edit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+  <td>{{prodF.idProdotto}}</td>
+  <td>{{prodF.codProdotto}}</td>
+  <td>{{prodF.tipo}}</td>
+  <td>{{prodF.codici}}</td>
+  <td>{{prodF.autoCompatibile}}</td>
+  <td>{{prodF.descrizione}}</td>
+  <td>{{prodF.prezzo | currency : 'EUR'}}</td>
+  <td>{{prodF.priorita}}</td>
+  <td id="delEdit"><!-- <button (click)="Elimina(prodotto.codProdotto)">Elimina</button> -->
+    <button mat-raised-button (click)="Elimina(prodF.codProdotto)">Elimina</button>
+    <button mat-raised-button (click)="Modifica(prodF.codProdotto)">Modifica</button>
+   <!--  <button (click)="Modifica(prodotto.codProdotto)">Edit</button></td> -->
+  </tr>
+  </tbody>
+  </table></ng-container>
+  
 
 
 
