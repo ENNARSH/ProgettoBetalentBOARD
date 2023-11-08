@@ -16,6 +16,7 @@ import lombok.Setter;
 @Table(name="prodotti") //corrisponde al nome della tabella (entità)
 public class Prodotto {
 
+
 	@Id  // Obbligatorio
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //ID incrementale su tutta la tabella
 	@Column(name = "id")  //corrisponde al nome della colonna (attributo)

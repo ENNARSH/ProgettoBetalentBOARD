@@ -10,6 +10,7 @@ import lombok.Setter;
 @Entity  //Questa classe corrisponde a una tabella
 @Table(name="users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")  //corrisponde al nome della colonna (attributo)
