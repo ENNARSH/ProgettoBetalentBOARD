@@ -86,6 +86,7 @@ if (prodOp.isPresent()) {
     }
 
 
+
     @GetMapping("prodotti/trovapertipoeauto/{tipo}/{autoCompatibile}")  // ricerca per codProd
     public ResponseEntity<Prodotto> findProdottoByTipoAndAutoCompatibile(@PathVariable String tipo, @PathVariable String autoCompatibile) {
         Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoByTipoAndAutoCompatibile(tipo, autoCompatibile));
