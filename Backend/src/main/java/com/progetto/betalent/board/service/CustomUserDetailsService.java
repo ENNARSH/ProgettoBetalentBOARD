@@ -3,8 +3,8 @@ package com.progetto.betalent.board.service;
 
 
 
-import com.progetto.betalent.board.entitys.Employee;
-import com.progetto.betalent.board.repo.EmployeeRepo;
+import com.progetto.betalent.board.entities.Employee;
+import com.progetto.betalent.board.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
