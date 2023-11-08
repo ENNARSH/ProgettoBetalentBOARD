@@ -95,7 +95,6 @@ if (prodOp.isPresent()) {
             return ResponseEntity.notFound().build();
         }
     }
-
     @GetMapping("prodotti/{auto}/{budget}")
     public ResponseEntity<List<Prodotto>> proviamo(@PathVariable String auto, @PathVariable Double budget) {
         List<Prodotto> prodotti = service.findAllProdottoByautoCompatibile(auto);

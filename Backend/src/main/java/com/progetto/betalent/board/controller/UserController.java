@@ -16,6 +16,7 @@ import java.security.Principal;
 @Controller
 @CrossOrigin("http://localhost:4200")
 
+
 public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
