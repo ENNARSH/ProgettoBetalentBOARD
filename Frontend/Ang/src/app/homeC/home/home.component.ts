@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TableDataServiceService } from 'src/app/services/table-data-service.service';
 
 
 
@@ -9,7 +10,14 @@ import { Component } from '@angular/core';
 })
 
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+
+
+  constructor(private service: TableDataServiceService){}
+
+  ngOnInit(): void {
+   this.service.loadData().subscribe();
+  }
 
   
 }

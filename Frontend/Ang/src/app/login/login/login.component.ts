@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
-import { RegistrationService } from 'src/app/registration/registration.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 

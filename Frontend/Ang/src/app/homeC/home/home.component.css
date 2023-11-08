@@ -1,6 +1,6 @@
 
-.container{
-    width: 99.2vw;
+.containerMain{
+    
     height: 100vh;
     background-image: url(/assets/bgImg/bgProject.jpg);
      background-size:cover;

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
-import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -14,7 +13,7 @@ export class RegisterComponent {
   employeename: string ="";
   email: string ="";
   password: string ="";
-  constructor(private http: HttpClient )
+  constructor(private http: HttpClient ,private router:Router)
   {
   }
   save()
@@ -29,6 +28,7 @@ export class RegisterComponent {
     {
         console.log(resultData);
         alert("Employee Registered Successfully");
+        this.router.navigate(['login']);
     });
   }
 }

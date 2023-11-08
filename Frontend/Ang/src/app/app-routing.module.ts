@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './homeC/home/home.component';
 import { EditComponent } from './addEdit/edit/edit.component';
 import { AddComponent } from './addEdit/add/add.component';
-import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error/error.component';
 import { PreventivoComponent } from './preventivo/preventivo/preventivo.component';
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './registration/register/register.component';
 
 
 const routes: Routes = [
-  {path:"" , component: HomeComponent,},
+  {path:"" , component: LoginComponent,},
+  {path:"login" , component: LoginComponent,},
+  {path:"register" , component: RegisterComponent,},
   {path:"home" , component: HomeComponent,},
   {path:"preventivo" , component: PreventivoComponent},
   {path:"edit/:codProdotto" , component: EditComponent,},
