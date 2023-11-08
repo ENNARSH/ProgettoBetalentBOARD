@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
+import { RegistrationService } from '../registration.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -6,6 +10,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-registrationSuccess: any;
 
+  employeename: string ="";
+  email: string ="";
+  password: string ="";
+  constructor(private http: HttpClient )
+  {
+  }
+  save()
+  {
+  
+    let bodyData = {
+      "employeename" : this.employeename,
+      "email" : this.email,
+      "password" : this.password
+    };
+    this.http.post("http://localhost:8080/save",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    {
+        console.log(resultData);
+        alert("Employee Registered Successfully");
+    });
+  }
 }
