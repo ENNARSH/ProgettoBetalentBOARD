@@ -11,8 +11,8 @@ import { TableDataServiceService } from 'src/app/services/table-data-service.ser
 })
 export class EditComponent implements OnInit{
 
- 
-  
+
+
 
   constructor(private service:TableDataServiceService, private route:ActivatedRoute , private router: Router){}
   saveCod : string = "";
@@ -22,11 +22,11 @@ export class EditComponent implements OnInit{
   codici:string ="";
   autoCompatibili:string= "";
   descrizione:string ="";
-  
+
   ngOnInit(): void {
   this.route.paramMap.subscribe( paramMap => {
     this.saveCod = paramMap.get('codProdotto')!;
-})  
+})
  this.service.getProdBycodProdotto(this.saveCod).subscribe((response) => {
   this.autoCompatibili = response.autoCompatibile
    this.priorita = response.priorita
@@ -59,7 +59,7 @@ export class EditComponent implements OnInit{
       console.log
      }) */
      this.service.editData(this.saveCod,body).subscribe({
-     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK") 
+     next: (v) => console.log("Prodotto modificato :"+ v.status  + " OK")
      ,
     error: (e) => console.error("Errore : " + e.status),
      })

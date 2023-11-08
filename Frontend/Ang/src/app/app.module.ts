@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 //MATERIAL
 import {MatIconModule} from '@angular/material/icon';
@@ -60,8 +60,8 @@ import { PreventivoComponent } from './preventivo/preventivo/preventivo.componen
     HttpClientModule,
     MatInputModule,
     FormsModule
-    
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
