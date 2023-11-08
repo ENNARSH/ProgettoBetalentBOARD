@@ -11,7 +11,6 @@ public class CustomUserDetails implements UserDetails {
     private Collection<? extends  GrantedAuthority> authorities;
     private String fullname;
 
-
     public String getFullname() {
         return fullname;
     }

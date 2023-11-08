@@ -1,8 +1,10 @@
 package com.progetto.betalent.board.service;
 
 
-import com.progetto.betalent.board.entities.User;
-import com.progetto.betalent.board.repository.UserRepository;
+
+
+import com.progetto.betalent.board.entities.Employee;
+import com.progetto.betalent.board.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,20 +19,19 @@ import java.util.Collection;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
-
+    private EmployeeRepo employeeRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Employee user = employeeRepo.findByEmail(email);
         if (user == null){
             throw new UsernameNotFoundException("Username or passowrd not found");
         }
         return new CustomUserDetails(
-                user.getUsername(),
+                user.getEmail(),
                 user.getPassword(),
                 authorities(),
-                user.getFullname());
+                user.getEmployeename());
     }
 
     public Collection<? extends GrantedAuthority> authorities (){

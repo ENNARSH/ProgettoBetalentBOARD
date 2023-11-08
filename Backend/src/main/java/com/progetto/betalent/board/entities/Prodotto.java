@@ -2,13 +2,11 @@ package com.progetto.betalent.board.entities;
 
 
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @NoArgsConstructor
@@ -17,6 +15,7 @@ import lombok.Setter;
 @Entity  //Questa classe corrisponde a una tabella
 @Table(name="prodotti") //corrisponde al nome della tabella (entità)
 public class Prodotto {
+
 
 	@Id  // Obbligatorio
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //ID incrementale su tutta la tabella
@@ -43,7 +42,6 @@ public class Prodotto {
 
 	@Column(name = "priorita") 
 	private Integer priorita;
-
 
 
 	}

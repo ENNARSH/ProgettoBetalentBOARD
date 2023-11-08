@@ -1,39 +1,22 @@
-<!-- Login Form -->
-<div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            Login
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="login-username">Username</label>
-                <input type="text" class="form-control" id="login-username" placeholder="Enter username">
-              </div>
-              <div class="form-group">
-                <label for="login-password">Password</label>
-                <input type="password" class="form-control" id="login-password" placeholder="Enter password">
-              </div>
-              <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-          </div>
-        </div>
-      </div>
+<div class="container mt-4" >
+  <div class="card">
+      <h1>Employee Login</h1>
+<form>
+
+  <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"  placeholder="Enter Email">
     </div>
-  </div>
-  
-  <!-- Login Error Message -->
-  <div class="container mt-3">
-    <div class="alert alert-danger" *ngIf="loginError">
-      Login Error: Please check your credentials and try again.
+
+    <div class="form-group">
+      <label>Paaword</label>
+      <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" class="form-control" placeholder="Enter Password">
     </div>
-  </div>
-  
-  <!-- Logout Message -->
-  <div class="container mt-3">
-    <div class="alert alert-info" *ngIf="logout">
-      You have been successfully logged out.
-    </div>
-  </div>
+
+   <button type="submit" class="btn btn-primary" (click)="Login()">Login</button>
+
+
+</form>
+</div>
+
+</div>
