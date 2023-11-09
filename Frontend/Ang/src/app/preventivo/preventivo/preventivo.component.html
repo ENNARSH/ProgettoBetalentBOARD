@@ -4,6 +4,10 @@
     <form #prevform="ngForm" (ngSubmit)="onSubmit(prevform)">
      <h1>Preventivo Form</h1>
      <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <input matInput name="tipo"  ngModel required >
+    </mat-form-field>
+     <mat-form-field>
         <mat-label>Modello Auto</mat-label>
         <input matInput name="autoCompatibile"  ngModel required>
       </mat-form-field>

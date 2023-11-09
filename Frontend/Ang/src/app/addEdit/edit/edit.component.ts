@@ -42,6 +42,7 @@ export class EditComponent implements OnInit{
 })
 
   }
+  
 
     onSubmit(form : NgForm){
      let body = {
@@ -63,6 +64,14 @@ export class EditComponent implements OnInit{
      ,
     error: (e) => console.error("Errore : " + e.status),
      })
-     this.router.navigate(['home']);
+     this.redirectTo('/home');
+    /*  this.router.navigate(['home']); */
     }
+
+//questo metodo mi aggiorna la tabella una volta tornato in home
+    redirectTo(uri: string) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => 
+        this.router.navigate([uri]));
+      }
+    
 }

@@ -47,11 +47,15 @@ export class TableDataServiceService implements OnInit{
     return this.http.put(`http://${this.server}:${this.port}/rest/prodotti/${codProdotto}`,body,{observe:'response'});
   }
 
-  prevData(/* params:HttpParams */autoCompatibile:string,budget:number){
+/*   prevData(autoCompatibile:string,budget:number){
     return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti/${autoCompatibile}/${budget}`)
 
-  }
+  } */
 
+  prevData(/* params:HttpParams */tipo:string,autoCompatibile:string,budget:number){
+    return this.http.get<Prodotti[]>(`http://${this.server}:${this.port}/rest/prodotti/${tipo}/${autoCompatibile}/${budget}`)
+
+  }
   
    
 }
