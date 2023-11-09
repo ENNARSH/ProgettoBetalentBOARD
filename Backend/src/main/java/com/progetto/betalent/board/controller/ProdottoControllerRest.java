@@ -87,17 +87,9 @@ if (prodOp.isPresent()) {
 
 
 
-    @GetMapping("prodotti/trovapertipoeauto/{tipo}/{autoCompatibile}")  // ricerca per codProd
-    public ResponseEntity<Prodotto> findProdottoByTipoAndAutoCompatibile(@PathVariable String tipo, @PathVariable String autoCompatibile) {
-        Optional<Prodotto> prodOp = Optional.ofNullable(service.findProdottoByTipoAndAutoCompatibile(tipo, autoCompatibile));
-        if (prodOp.isPresent()) {
-            return ResponseEntity.ok(prodOp.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+
     @GetMapping("prodotti/{auto}/{budget}")
-    public ResponseEntity<List<Prodotto>> proviamo(@PathVariable String auto, @PathVariable Double budget) {
+    public ResponseEntity<List<Prodotto>> logicaSortPreventivoTest(@PathVariable String auto, @PathVariable Double budget) {
         List<Prodotto> prodotti = service.findAllProdottoByautoCompatibile(auto);
         List<Prodotto> result = new ArrayList<>();
         long totalCost = 0;
@@ -118,5 +110,31 @@ if (prodOp.isPresent()) {
 
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("prodotti/{tipo}/{auto}/{budget}")
+    public ResponseEntity<List<Prodotto>> logicaSortPreventivoFinale(@PathVariable String tipo,@PathVariable String auto, @PathVariable Double budget) {
+        List<Prodotto> prodotti = service.findAllProdottoByTipoAndAutoCompatibile(tipo,auto);
+        System.out.println(prodotti);
+        List<Prodotto> result = new ArrayList<>();
+        long totalCost = 0;
+
+        prodotti.sort(Comparator.comparingDouble(p -> (double) p.getPrezzo() / p.getPriorita())); // Ordina i prodotti in base al rapporto prezzo/priorità
+
+        for (Prodotto prodotto : prodotti) {
+            long currentCost = prodotto.getPrezzo();
+
+            if (totalCost + currentCost <= budget) {
+                totalCost += currentCost;
+                result.add(prodotto);
+            } else {
+                prodotto.setDescrizione(prodotto.getDescrizione() + " - Out of Budget");
+                result.add(prodotto);
+            }
+        }
+
+        return ResponseEntity.ok(result);
+    }
+
+
 
 }
